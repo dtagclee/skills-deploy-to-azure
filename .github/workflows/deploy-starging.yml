@@ -1,0 +1,14 @@
+name: Stage the app
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print a greeting
+        run: echo 'Hello World'
+
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
